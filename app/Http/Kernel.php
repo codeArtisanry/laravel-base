@@ -13,17 +13,9 @@ class Kernel extends HttpKernel
    *
    * @var array
    */
-  protected $middleware = [];
-
-  /**
-   * The application's route middleware groups.
-   *
-   * @var array
-   */
-  protected $middlewareGroups = [
-    'web' => [],
-
+  protected $middleware = [
     'api' => [
+      \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
       'throttle:api',
       \Illuminate\Routing\Middleware\SubstituteBindings::class,
     ],
