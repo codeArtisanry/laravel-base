@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return ['Laravel' => app()->version()];
+    return
+        Route::view('/register', 'auth.register');
 });
 
-require __DIR__.'/auth.php';
+Route::view('/register', 'auth.register');
+Route::view('/login', 'auth.login');
